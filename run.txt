@@ -1,0 +1,8 @@
+-- RUN Java project
+.\mvnw clean javafx:run
+
+LINUX:
+./mvnw clean javafx:run
+
+Note:
+Last update 20252-11-06
