@@ -1,13 +1,15 @@
 package com.example.antrojiprogramavimopraktika.Entities;
 
+import java.time.LocalDate;
+
 public abstract class Person {
     protected int userID;
     protected String firstName;
     protected String lastName;
-    protected String birthDate;
+    protected LocalDate birthDate;
     protected String email;
 
-    public Person(int userID, String firstName, String lastName, String birthDate, String email) {
+    public Person(int userID, String firstName, String lastName, LocalDate birthDate, String email) {
         this.userID = userID;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -27,7 +29,7 @@ public abstract class Person {
         return this.lastName;
     }
 
-    public String getBirthDate() {
+    public LocalDate getBirthDate() {
         return this.birthDate;
     }
 

@@ -11,7 +11,15 @@ public class MainController {
     public static void ShowAdminPanel(Stage currentStage) throws IOException {
         SceneLoader.load(
             currentStage,
-            "/com/example/antrojiprogramavimopraktika/View/AdminPanel.fxml"
+                "/com/example/antrojiprogramavimopraktika/View/Admin/AdminPanel.fxml"
         );
     }
+
+    public static void ShowLoginPanel(Stage currentStage) throws IOException {
+        SceneLoader.load(
+                currentStage,
+                "/com/example/antrojiprogramavimopraktika/View/AuthView.fxml"
+        );
+    }
+
 }

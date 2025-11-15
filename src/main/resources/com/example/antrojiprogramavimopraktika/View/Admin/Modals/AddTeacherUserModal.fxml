@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="396.0" prefWidth="311.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.antrojiprogramavimopraktika.Controller.Admin.AddTeacherController">
+    <children>
+        <Label alignment="CENTER" focusTraversable="false" layoutY="6.0" prefHeight="25.0" prefWidth="311.0" text="Naujo dėstytojo vartotojo pridėjimas">
+            <font>
+                <Font size="16.0" />
+            </font></Label>
+      <StackPane layoutY="54.0" prefHeight="47.0" prefWidth="311.0">
+         <children>
+            <Label focusTraversable="false" prefHeight="17.0" prefWidth="520.0" text="Įveskite vardą:">
+               <StackPane.margin>
+                  <Insets bottom="26.0" left="8.0" />
+               </StackPane.margin>
+            </Label>
+            <TextField fx:id="addteacher_firstname" focusTraversable="false" prefHeight="25.0" prefWidth="296.0" promptText="Vardas">
+               <StackPane.margin>
+                  <Insets left="7.0" right="20.0" top="22.0" />
+               </StackPane.margin>
+            </TextField>
+         </children>
+      </StackPane>
+      <StackPane layoutY="120.0" prefHeight="47.0" prefWidth="311.0">
+         <children>
+            <Label focusTraversable="false" prefHeight="17.0" prefWidth="520.0" text="Įveskite pavardę:">
+               <StackPane.margin>
+                  <Insets bottom="26.0" left="8.0" />
+               </StackPane.margin>
+            </Label>
+            <TextField fx:id="addteacher_lastname" focusTraversable="false" prefHeight="25.0" prefWidth="328.0" promptText="Pavardė">
+               <StackPane.margin>
+                  <Insets left="7.0" right="20.0" top="22.0" />
+               </StackPane.margin>
+            </TextField>
+         </children>
+      </StackPane>
+      <StackPane layoutY="185.0" prefHeight="47.0" prefWidth="311.0">
+         <children>
+            <Label focusTraversable="false" prefHeight="17.0" prefWidth="520.0" text="Pasirinkite gimimo datą:">
+               <StackPane.margin>
+                  <Insets bottom="26.0" left="8.0" />
+               </StackPane.margin>
+            </Label>
+            <DatePicker fx:id="addteacher_birthdate" focusTraversable="false" prefHeight="25.0" prefWidth="305.0">
+               <StackPane.margin>
+                  <Insets left="7.0" right="20.0" top="22.0" />
+               </StackPane.margin>
+            </DatePicker>
+         </children>
+      </StackPane>
+      <StackPane layoutY="250.0" prefHeight="47.0" prefWidth="311.0">
+         <children>
+            <Label focusTraversable="false" prefHeight="17.0" prefWidth="520.0" text="Įveskite el. paštą:">
+               <StackPane.margin>
+                  <Insets bottom="26.0" left="8.0" />
+               </StackPane.margin>
+            </Label>
+            <TextField fx:id="addteacher_email" focusTraversable="false" prefHeight="25.0" prefWidth="307.0" promptText="El. paštas">
+               <StackPane.margin>
+                  <Insets left="7.0" right="20.0" top="22.0" />
+               </StackPane.margin>
+            </TextField>
+         </children>
+      </StackPane>
+      <Label fx:id="teacheradd_errorlabel" alignment="CENTER" focusTraversable="false" layoutX="9.0" layoutY="315.0" prefHeight="17.0" prefWidth="284.0" text="Error" textFill="RED" visible="false" />
+      <Button fx:id="addteacher_submitBtn" focusTraversable="false" layoutX="9.0" layoutY="355.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="135.5" text="Vykdyti" />
+      <Button fx:id="addteacher_cancelBtn" focusTraversable="false" layoutX="152.0" layoutY="355.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="135.5" text="Atšaukti" />
+    </children>
+</AnchorPane>

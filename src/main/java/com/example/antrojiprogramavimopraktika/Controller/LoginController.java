@@ -1,11 +1,13 @@
 package com.example.antrojiprogramavimopraktika.Controller;
 
 import com.example.antrojiprogramavimopraktika.Entities.Person;
+import com.example.antrojiprogramavimopraktika.Entities.Session;
 import com.example.antrojiprogramavimopraktika.Files.LoginManager;
 import com.example.antrojiprogramavimopraktika.Files.LoginValidator;
 import com.example.antrojiprogramavimopraktika.Files.ValidationResult;
 import com.example.antrojiprogramavimopraktika.Utils.UIErrors;
 import java.io.IOException;
+
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -46,57 +48,40 @@ public class LoginController {
         String passwordInput = login_password.getText().trim();
 
         ValidationResult userIDResult = validator.validateUserID(usernameInput);
-        ValidationResult passwordResult = validator.validatePassword(
-            passwordInput
-        );
+        ValidationResult passwordResult = validator.validatePassword(passwordInput);
 
         boolean valid = true;
 
         if (userIDResult.isInvalid()) {
-            UIErrors.showLabelError(
-                login_wronguserid,
-                userIDResult.getErrorMessage()
-            );
+            UIErrors.showLabelError(login_wronguserid, userIDResult.getErrorMessage());
             valid = false;
         }
 
         if (passwordResult.isInvalid()) {
-            UIErrors.showLabelError(
-                login_wrongpsw,
-                passwordResult.getErrorMessage()
-            );
+            UIErrors.showLabelError(login_wrongpsw, passwordResult.getErrorMessage());
             valid = false;
         }
 
-        Person user = loginManager.login(usernameInput, passwordInput);
-
         if (!valid) return;
 
+        Person user = loginManager.login(usernameInput, passwordInput);
+
         if (user == null) {
-            UIErrors.showLabelError(
-                login_wronguserid,
-                "Neteisingi prisijungimo duomenys"
-            );
-            UIErrors.showLabelError(
-                login_wrongpsw,
-                "Neteisingi prisijungimo duomenys"
-            );
+            UIErrors.showLabelError(login_wronguserid, "Neteisingi prisijungimo duomenys");
+            UIErrors.showLabelError(login_wrongpsw, "Neteisingi prisijungimo duomenys");
             return;
         }
 
+        Session.getInstance().setCurrentUser(user);
+
         switch (user.getRole()) {
-            case "admin": {
+            case "admin", "teacher":
                 break;
-            }
-            case "teacher": {
-                break;
-            }
-            case "student": {
+            case "student":
                 MainController.ShowAdminPanel(
-                    (Stage) login_submitBtn.getScene().getWindow()
+                        (Stage) login_submitBtn.getScene().getWindow()
                 );
                 break;
-            }
         }
     }
 }

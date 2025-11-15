@@ -4,9 +4,11 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.function.Consumer;
 
 public final class SceneLoader {
 
@@ -28,7 +30,7 @@ public final class SceneLoader {
         stage.setResizable(false);
     }
 
-    public static void loadAnchored(String fxmlPath, AnchorPane parent) throws Exception {
+    public static void loadAnchored(String fxmlPath, AnchorPane parent) throws IOException {
         FXMLLoader loader = new FXMLLoader(SceneLoader.class.getResource(fxmlPath));
         Parent pane = loader.load();
 
@@ -38,5 +40,27 @@ public final class SceneLoader {
         AnchorPane.setRightAnchor(pane, 0.0);
 
         parent.getChildren().setAll(pane);
+    }
+
+    public static <T> T loadModal(String fxmlPath, String title, Consumer<T> onControllerReady) throws IOException {
+        FXMLLoader loader = new FXMLLoader(SceneLoader.class.getResource(fxmlPath));
+        Parent pane = loader.load();
+
+        T controller = loader.getController();
+
+        if(onControllerReady != null) {
+            onControllerReady.accept(controller);
+        }
+
+        Stage stage = new Stage();
+
+        stage.setTitle(title);
+        stage.setScene(new Scene(pane));
+        stage.initModality(Modality.APPLICATION_MODAL);
+        stage.setResizable(false);
+
+        stage.showAndWait();
+
+        return controller;
     }
 }
