@@ -3,30 +3,24 @@ package com.example.antrojiprogramavimopraktika.Entities;
 public final class TeacherSubject {
 
     private final int id;
-    private final String firstName;
-    private final String lastName;
-    private final String subjectName;
+    private final Teacher teacher;
+    private final Subject subject;
 
-    public TeacherSubject(int id, String firstName, String lastName, String subjectName){
+    public TeacherSubject(int id, Teacher teacher, Subject subject) {
         this.id = id;
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.subjectName = subjectName;
+        this.teacher = teacher;
+        this.subject = subject;
     }
 
     public int getId() {
         return id;
     }
 
-    public String getFirstName() {
-        return firstName;
+    public Teacher getTeacher() {
+        return teacher;
     }
 
-    public String getLastName() {
-        return lastName;
-    }
-
-    public String getSubjectName() {
-        return subjectName;
+    public Subject getSubject() {
+        return subject;
     }
 }

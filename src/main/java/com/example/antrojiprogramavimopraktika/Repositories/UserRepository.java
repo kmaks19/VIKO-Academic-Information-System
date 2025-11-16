@@ -1,18 +1,17 @@
 package com.example.antrojiprogramavimopraktika.Repositories;
 
 import com.example.antrojiprogramavimopraktika.Database.Database;
-import com.example.antrojiprogramavimopraktika.Entities.Teacher;
+import com.example.antrojiprogramavimopraktika.Interfaces.IUserRepository;
 
 import java.sql.*;
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.List;
 
-public final class UserRepository {
+public final class UserRepository implements IUserRepository {
 
     public UserRepository() {}
 
     // Finds user by username and password
+    @Override
     public ResultSet findUserByUP(Connection conn, String username, String password) throws SQLException {
         String sql = "SELECT userID, firstName, lastName, birthDate, email, role FROM `user` WHERE username = ? AND password = ?";
 
@@ -24,46 +23,25 @@ public final class UserRepository {
         return ps.executeQuery();
     }
 
-    public ResultSet findGroupByUserID(Connection conn, int userID) throws SQLException {
-        String sql = """
-            SELECT sg.groupID, g.groupName
-            FROM `studentgroup` sg
-            LEFT JOIN `groups` g ON sg.groupID = g.groupID
-            WHERE sg.userID = ?
-            LIMIT 1
-        """;
+    @Override
+    // Finds user by first name and last name
+    public boolean userExists(String firstName, String lastName) {
+        String sql = "SELECT 1 FROM user WHERE firstName = ? AND lastName = ? LIMIT 1";
 
-        PreparedStatement ps = conn.prepareStatement(sql);
+        try (Connection conn = Database.getConnection();
+             PreparedStatement ps = conn.prepareStatement(sql)) {
 
-        ps.setInt(1, userID);
+            ps.setString(1, firstName);
+            ps.setString(2, lastName);
 
-        return ps.executeQuery();
-    }
-
-    public List<Teacher> getAllTeachers() {
-        List<Teacher> list = new ArrayList<>();
-
-        String sql = "SELECT userID, firstName, lastName, email, birthDate FROM `user` WHERE `role` = 'teacher'";
-
-        try(Connection conn = Database.getConnection();
-            PreparedStatement stmt = conn.prepareStatement(sql);
-            ResultSet rs = stmt.executeQuery()) {
-
-            while(rs.next()) {
-                list.add(new Teacher(
-                        rs.getInt("userID"),
-                        rs.getString("firstName"),
-                        rs.getString("lastName"),
-                        rs.getDate("birthDate").toLocalDate(),
-                        rs.getString("email")
-                ));
-            }
+            ResultSet rs = ps.executeQuery();
+            return rs.next();
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-        return list;
     }
 
+    @Override
     public void removeUser(int userID) {
         String sql = "DELETE FROM `user` WHERE userID = ?";
 
@@ -77,6 +55,7 @@ public final class UserRepository {
         }
     }
 
+    @Override
     public boolean addUser(String firstName, String lastName, String email, LocalDate birthdate, String role) {
         String sql = "INSERT INTO `user` (firstName, lastName, email, birthDate, role, username, password) VALUES (?, ?, ?, ?, ?, ?, ?)";
 
@@ -96,5 +75,4 @@ public final class UserRepository {
             throw new RuntimeException(e);
         }
     }
-
 }

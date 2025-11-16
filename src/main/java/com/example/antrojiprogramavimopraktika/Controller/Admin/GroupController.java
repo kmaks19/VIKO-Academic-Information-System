@@ -1,6 +1,8 @@
 package com.example.antrojiprogramavimopraktika.Controller.Admin;
 
+import com.example.antrojiprogramavimopraktika.Controller.Admin.ModalControllers.AddGroupController;
 import com.example.antrojiprogramavimopraktika.Entities.Group;
+import com.example.antrojiprogramavimopraktika.Interfaces.IGroupRepository;
 import com.example.antrojiprogramavimopraktika.Repositories.GroupRepository;
 import com.example.antrojiprogramavimopraktika.Utils.SceneLoader;
 import javafx.collections.FXCollections;
@@ -13,7 +15,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import java.io.IOException;
 import java.util.List;
 
-public final class StudentGroupController {
+public final class GroupController {
 
     @FXML
     private TableView<Group> sg_table;
@@ -30,7 +32,7 @@ public final class StudentGroupController {
     @FXML
     private Button sg_removeGroup;
 
-    private final GroupRepository groupRepo = new GroupRepository();
+    private final IGroupRepository groupRepo = new GroupRepository();
 
     public void initialize() {
 
@@ -56,7 +58,7 @@ public final class StudentGroupController {
                 SceneLoader.loadModal(
                         "/com/example/antrojiprogramavimopraktika/View/Admin/Modals/AddStudentGroupModal.fxml",
                         "Studentų grupės pridėjimas",
-                        modalController -> ((AddStudentGroupController) modalController).setParent(this)
+                        modalController -> ((AddGroupController) modalController).setParent(this)
                 );
             } catch (IOException e) {
                 throw new RuntimeException(e);

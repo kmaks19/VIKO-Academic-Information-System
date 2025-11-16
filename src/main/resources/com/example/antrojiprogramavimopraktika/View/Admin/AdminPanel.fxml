@@ -34,7 +34,7 @@
                   <Insets bottom="46.0" left="46.0" right="46.0" />
               </VBox.margin>
            </Button>
-           <Button fx:id="admin_ddalykaiBtn" focusTraversable="false" layoutX="56.0" layoutY="268.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="369.0" text="Dėstomi dalykai">
+           <Button fx:id="admin_ddalykaiBtn" focusTraversable="false" layoutX="56.0" layoutY="268.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="369.0" text="Dalykai">
               <VBox.margin>
                   <Insets left="46.0" right="46.0" />
               </VBox.margin>

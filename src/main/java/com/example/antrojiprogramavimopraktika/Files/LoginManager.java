@@ -2,6 +2,7 @@ package com.example.antrojiprogramavimopraktika.Files;
 
 import com.example.antrojiprogramavimopraktika.Database.Database;
 import com.example.antrojiprogramavimopraktika.Entities.*;
+import com.example.antrojiprogramavimopraktika.Interfaces.IUserRepository;
 import com.example.antrojiprogramavimopraktika.Repositories.UserRepository;
 
 import java.sql.Connection;
@@ -11,7 +12,7 @@ import java.time.LocalDate;
 
 public final class LoginManager {
 
-    private final UserRepository repo;
+    private final IUserRepository repo;
 
     public LoginManager() {
         this.repo = new UserRepository();
@@ -38,17 +39,7 @@ public final class LoginManager {
                 case "teacher":
                     return new Teacher(userID, firstName, lastName, birthDate, email);
                 case "student": {
-                    ResultSet rss = repo.findGroupByUserID(conn, userID);
-
-                    Group group = null;
-
-                    if(rss.next()) {
-                        int groupID = rss.getInt("groupID");
-                        String groupName = rss.getString("groupName");
-
-                        group = new Group(groupID, groupName);
-                    }
-                    return new Student(userID, firstName, lastName, birthDate, email, group);
+                    return new Student(userID, firstName, lastName, birthDate, email);
                 }
                 default:
                     return null;

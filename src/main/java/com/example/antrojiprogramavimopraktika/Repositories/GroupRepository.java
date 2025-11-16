@@ -2,6 +2,7 @@ package com.example.antrojiprogramavimopraktika.Repositories;
 
 import com.example.antrojiprogramavimopraktika.Database.Database;
 import com.example.antrojiprogramavimopraktika.Entities.Group;
+import com.example.antrojiprogramavimopraktika.Interfaces.IGroupRepository;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -10,8 +11,9 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public final class GroupRepository {
+public final class GroupRepository implements IGroupRepository {
 
+    @Override
     public List<Group> getGroups() {
         List<Group> groups = new ArrayList<>();
 
@@ -33,6 +35,7 @@ public final class GroupRepository {
         return groups;
     }
 
+    @Override
     public void deleteGroup(int groupID) {
         String sql = "DELETE FROM `groups` WHERE groupID = ?";
 
@@ -46,6 +49,7 @@ public final class GroupRepository {
         }
     }
 
+    @Override
     public boolean checkIfUnique(String groupName) {
         String sql = "SELECT COUNT(1) FROM `groups` where groupName = ?";
 
@@ -64,6 +68,7 @@ public final class GroupRepository {
         }
     }
 
+    @Override
     public boolean addGroup(String groupName) {
         String sql = "INSERT INTO `groups` (groupName) VALUES (?)";
 

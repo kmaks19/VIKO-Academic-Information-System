@@ -1,5 +1,8 @@
-package com.example.antrojiprogramavimopraktika.Controller.Admin;
+package com.example.antrojiprogramavimopraktika.Controller.Admin.ModalControllers;
 
+import com.example.antrojiprogramavimopraktika.Controller.Admin.TeachersController;
+import com.example.antrojiprogramavimopraktika.Files.UserValidator;
+import com.example.antrojiprogramavimopraktika.Interfaces.IUserRepository;
 import com.example.antrojiprogramavimopraktika.Repositories.UserRepository;
 import javafx.fxml.FXML;
 import javafx.scene.control.DatePicker;
@@ -7,13 +10,12 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
 import javafx.scene.control.TextField;
-
 import java.time.LocalDate;
 
 public final class AddTeacherController {
     public AddTeacherController() {}
 
-    private final UserRepository userRepository = new UserRepository();
+    private final IUserRepository userRepository = new UserRepository();
 
     private TeachersController parent;
 
@@ -63,34 +65,22 @@ public final class AddTeacherController {
         String email = addteacher_email.getText().trim();
         LocalDate birthDate = addteacher_birthdate.getValue();
 
-        if(firstName.isEmpty()) {
-            teacheradd_errorlabel.setText("Vardas negali būti tuščias");
+        String error = UserValidator.validate(firstName, lastName, email, birthDate);
+
+        if(error != null) {
+            teacheradd_errorlabel.setText(error);
             teacheradd_errorlabel.setVisible(true);
             return false;
         }
 
-        if(lastName.isEmpty()) {
-            teacheradd_errorlabel.setText("Pavardė negali būti tuščia");
+        boolean exists = userRepository.userExists(firstName, lastName);
+
+        if (exists) {
+            teacheradd_errorlabel.setText("Toks vartotojas jau egzistuoja!");
             teacheradd_errorlabel.setVisible(true);
             return false;
         }
 
-        if(email.isEmpty()) {
-            teacheradd_errorlabel.setText("El. paštas negali būti tuščias");
-            teacheradd_errorlabel.setVisible(true);
-            return false;
-        }
-
-        if(birthDate == null) {
-            teacheradd_errorlabel.setText("Privalote pasirinkti gimimo datą");
-            teacheradd_errorlabel.setVisible(true);
-            return false;
-        }
-        if(birthDate.isAfter(LocalDate.now())) {
-            teacheradd_errorlabel.setText("Gimimo data negali būti vėlesnė nei šiandien");
-            teacheradd_errorlabel.setVisible(true);
-            return false;
-        }
         return userRepository.addUser(firstName, lastName, email, birthDate, "teacher");
     }
 

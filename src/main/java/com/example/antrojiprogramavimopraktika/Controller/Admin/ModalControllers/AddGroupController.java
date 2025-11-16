@@ -1,5 +1,7 @@
-package com.example.antrojiprogramavimopraktika.Controller.Admin;
+package com.example.antrojiprogramavimopraktika.Controller.Admin.ModalControllers;
 
+import com.example.antrojiprogramavimopraktika.Controller.Admin.GroupController;
+import com.example.antrojiprogramavimopraktika.Interfaces.IGroupRepository;
 import com.example.antrojiprogramavimopraktika.Repositories.GroupRepository;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -7,15 +9,15 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
-public final class AddStudentGroupController {
-    public AddStudentGroupController() {}
+public final class AddGroupController {
+    public AddGroupController() {}
 
-    private final GroupRepository groupRepo = new GroupRepository();
+    private final IGroupRepository groupRepo = new GroupRepository();
 
     // Tėvinis langas yra student grupės main langas.
-    private StudentGroupController parent;
+    private GroupController parent;
 
-    public void setParent(StudentGroupController parent) {
+    public void setParent(GroupController parent) {
         this.parent = parent;
     }
 

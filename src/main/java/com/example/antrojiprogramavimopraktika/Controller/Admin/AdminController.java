@@ -44,7 +44,7 @@ public final class AdminController {
         Map<Button, String> buttonsMap = Map.ofEntries(
                 Map.entry(admin_stgrupesBtn, "/com/example/antrojiprogramavimopraktika/View/Admin/StudentGroups.fxml"),
                 Map.entry(admin_destytojaiBtn, "/com/example/antrojiprogramavimopraktika/View/Admin/TeachersControl.fxml"),
-                Map.entry(admin_studentaiBtn, ""),
+                Map.entry(admin_studentaiBtn, "/com/example/antrojiprogramavimopraktika/View/Admin/Students.fxml"),
                 Map.entry(admin_ddalykaiBtn, "")
         );
 
@@ -75,7 +75,7 @@ public final class AdminController {
         try {
             SceneLoader.loadAnchored(fxmlPath, admin_contentArea);
         } catch (Exception e) {
-            e.printStackTrace();
+            throw new RuntimeException(e);
         }
     }
 }

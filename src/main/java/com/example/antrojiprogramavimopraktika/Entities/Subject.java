@@ -1,16 +1,15 @@
 package com.example.antrojiprogramavimopraktika.Entities;
 
-public final class Group {
-
+public final class Subject {
     private final int id;
     private final String name;
 
-    public Group(int id, String name) {
+    public Subject(int id, String name) {
         this.id = id;
         this.name = name;
     }
 
-    public int getId() {
+    public int getID() {
         return this.id;
     }
 
@@ -20,6 +19,6 @@ public final class Group {
 
     @Override
     public String toString() {
-        return this.name;  // arba getName()
+        return this.name;
     }
 }
