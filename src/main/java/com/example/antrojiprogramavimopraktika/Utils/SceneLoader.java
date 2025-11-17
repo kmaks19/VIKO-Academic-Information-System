@@ -14,7 +14,7 @@ public final class SceneLoader {
 
     private SceneLoader() {}
 
-    private final static String TITLE = "Studentų informacinė sistema";
+    private final static String TITLE = "Akademinė informacijos sistema";
     private final static int WIDTH = 1280;
     private final static int HEIGHT = 960;
 

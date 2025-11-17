@@ -45,7 +45,7 @@ public final class AdminController {
                 Map.entry(admin_stgrupesBtn, "/com/example/antrojiprogramavimopraktika/View/Admin/StudentGroups.fxml"),
                 Map.entry(admin_destytojaiBtn, "/com/example/antrojiprogramavimopraktika/View/Admin/TeachersControl.fxml"),
                 Map.entry(admin_studentaiBtn, "/com/example/antrojiprogramavimopraktika/View/Admin/Students.fxml"),
-                Map.entry(admin_ddalykaiBtn, "")
+                Map.entry(admin_ddalykaiBtn, "/com/example/antrojiprogramavimopraktika/View/Admin/Subjects.fxml")
         );
 
         for(Map.Entry<Button, String> entry : buttonsMap.entrySet()) {

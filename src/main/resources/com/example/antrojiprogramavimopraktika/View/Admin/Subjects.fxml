@@ -1,13 +1,72 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
+<?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            prefHeight="400.0" prefWidth="600.0">
-
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="662.0"
+            prefWidth="807.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.example.antrojiprogramavimopraktika.Controller.Admin.SubjectsController">
+    <TableView fx:id="subjectsTable" focusTraversable="false" layoutY="87.0" prefHeight="313.0" prefWidth="807.0">
+        <columns>
+            <TableColumn fx:id="subjectsassign_id" prefWidth="76.0" text="ID"/>
+            <TableColumn fx:id="subjectsassign_subjectname" prefWidth="435.0" text="Dalyko pavadinimas"/>
+            <TableColumn fx:id="subjectsassign_groupname" prefWidth="295.0" text="Grupė"/>
+        </columns>
+    </TableView>
+    <Label alignment="CENTER" focusTraversable="false" layoutX="4.0" layoutY="10.0" prefHeight="17.0" prefWidth="807.0"
+           text="Dalykų valdymas">
+        <font>
+            <Font size="19.0"/>
+        </font>
+    </Label>
+    <Button fx:id="subjectsassignBtn" focusTraversable="false" layoutX="226.0" layoutY="421.0" mnemonicParsing="false"
+            prefHeight="25.0" prefWidth="165.0" text="Priskirti naują dalyką"/>
+    <Label alignment="CENTER" focusTraversable="false" layoutY="47.0" prefHeight="17.0" prefWidth="807.0"
+           text="Dalykų priskirtų prie grupių sąrašas">
+        <font>
+            <Font size="18.0"/>
+        </font>
+    </Label>
+    <Button fx:id="subjectsremoveBtn" focusTraversable="false" layoutX="404.0" layoutY="421.0" mnemonicParsing="false"
+            prefHeight="25.0" prefWidth="165.0" text="Pašalinti priskirtą dalyką"/>
+    <StackPane layoutX="222.0" layoutY="471.0" prefHeight="136.0" prefWidth="183.0">
+        <Label text="Filtruoti pagal grupę:">
+            <StackPane.margin>
+                <Insets bottom="112.0" right="62.0"/>
+            </StackPane.margin>
+        </Label>
+        <ChoiceBox fx:id="subjectassign_filterGroupChoiceBtn" prefHeight="25.0" prefWidth="227.0">
+            <StackPane.margin>
+                <Insets bottom="63.0" right="10.0"/>
+            </StackPane.margin>
+        </ChoiceBox>
+        <Button fx:id="subjectassign_filterGroupSubmitBtn" focusTraversable="false" mnemonicParsing="false"
+                prefHeight="25.0" prefWidth="191.0" text="Vykdyti">
+            <StackPane.margin>
+                <Insets right="10.0" top="55.0"/>
+            </StackPane.margin>
+        </Button>
+    </StackPane>
+    <StackPane layoutX="408.0" layoutY="471.0" prefHeight="136.0" prefWidth="183.0">
+        <Label text="Filtruoti pagal dalyką:">
+            <StackPane.margin>
+                <Insets bottom="112.0" right="62.0"/>
+            </StackPane.margin>
+        </Label>
+        <ChoiceBox fx:id="subjectassign_filterSubjectChoiceBtn" prefHeight="25.0" prefWidth="227.0">
+            <StackPane.margin>
+                <Insets bottom="63.0" right="10.0"/>
+            </StackPane.margin>
+        </ChoiceBox>
+        <Button fx:id="subjectassign_filterSubjectSubmitBtn" focusTraversable="false" mnemonicParsing="false"
+                prefHeight="25.0" prefWidth="191.0" text="Vykdyti">
+            <StackPane.margin>
+                <Insets right="10.0" top="55.0"/>
+            </StackPane.margin>
+        </Button>
+    </StackPane>
+    <Label alignment="CENTER" layoutX="222.0" layoutY="599.0" prefHeight="17.0" prefWidth="364.0" text="Label"
+           textFill="RED" visible="false"/>
 </AnchorPane>

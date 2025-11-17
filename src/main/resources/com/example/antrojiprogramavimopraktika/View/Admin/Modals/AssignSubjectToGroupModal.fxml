@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="262.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.antrojiprogramavimopraktika.Controller.Admin.ModalControllers.AssignSubjectToGroupController">
+    <Label alignment="CENTER" focusTraversable="false" layoutY="6.0" prefHeight="25.0" prefWidth="400.0" text="Dalyko priskyrimas grupei">
+        <font>
+            <Font size="16.0" />
+        </font>
+    </Label>
+    <StackPane layoutY="131.0" prefHeight="54.0" prefWidth="400.0">
+        <Label focusTraversable="false" prefHeight="17.0" prefWidth="112.0" text="Pasirinkite dalyką:">
+            <StackPane.margin>
+                <Insets bottom="26.0" right="260.0" />
+            </StackPane.margin>
+        </Label>
+        <ChoiceBox fx:id="subjectassigntogroup_subjectSelectBtn" focusTraversable="false" prefHeight="25.0" prefWidth="312.0">
+            <StackPane.margin>
+                <Insets left="13.0" right="99.0" top="27.0" />
+            </StackPane.margin>
+        </ChoiceBox>
+    </StackPane>
+    <StackPane layoutY="57.0" prefHeight="54.0" prefWidth="400.0">
+        <Label focusTraversable="false" prefHeight="17.0" prefWidth="112.0" text="Pasirinkite grupę:">
+            <StackPane.margin>
+                <Insets bottom="26.0" right="260.0"/>
+            </StackPane.margin>
+        </Label>
+        <ChoiceBox fx:id="subjectassigntogroup_subjectGroupSelectBtn" focusTraversable="false" prefHeight="25.0"
+                   prefWidth="321.0">
+            <StackPane.margin>
+                <Insets left="13.0" right="99.0" top="27.0"/>
+            </StackPane.margin>
+        </ChoiceBox>
+    </StackPane>
+    <Label fx:id="subjectassigntogroup_errorLabel" alignment="CENTER" focusTraversable="false" layoutX="14.0" layoutY="188.0" prefHeight="17.0" prefWidth="288.0" text="Label" textFill="RED" visible="false" />
+    <Button fx:id="subjectassigntogroup_submitBtn" focusTraversable="false" layoutX="14.0" layoutY="216.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="135.5" text="Vykdyti" />
+    <Button fx:id="subjectassigntogroup_cancelBtn" focusTraversable="false" layoutX="164.0" layoutY="216.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="135.5" text="Atšaukti" />
+</AnchorPane>
