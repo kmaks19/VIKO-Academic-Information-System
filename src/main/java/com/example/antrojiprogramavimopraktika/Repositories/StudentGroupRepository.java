@@ -120,4 +120,48 @@ public class StudentGroupRepository implements IStudentGroupRepository {
             throw new RuntimeException(e);
         }
     }
+
+    // Gets students list that are assigned to (student) group which is assigned to teacher's subject.
+    @Override
+    public List<Student> getStudentsForTeacherAndSubject(int teacherID, int subjectID) {
+        List<Student> list = new ArrayList<>();
+
+        String sql = """
+            SELECT
+                u.userID,
+                u.firstName,
+                u.lastName,
+                u.birthDate,
+                u.email
+            FROM user u
+            JOIN studentgroup sg ON sg.userID = u.userID
+            JOIN groupsubjects gs ON gs.groupID = sg.groupID
+            JOIN teachersubjects ts ON ts.subjectID = gs.subjectID
+            WHERE ts.teacherID = ? AND ts.subjectID = ?
+            ORDER BY u.firstName, u.lastName;
+        """;
+
+        try(Connection conn = Database.getConnection();
+            PreparedStatement stmt = conn.prepareStatement(sql)) {
+
+            stmt.setInt(1, teacherID);
+            stmt.setInt(2, subjectID);
+
+            ResultSet rs = stmt.executeQuery();
+
+            while(rs.next()) {
+                list.add(new Student(
+                        rs.getInt("userID"),
+                        rs.getString("firstName"),
+                        rs.getString("lastName"),
+                        rs.getDate("birthDate").toLocalDate(),
+                        rs.getString("email")
+                ));
+            }
+
+        } catch(SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return list;
+    }
 }

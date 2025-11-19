@@ -21,4 +21,8 @@ module com.example.antrojiprogramavimopraktika {
 
     opens com.example.antrojiprogramavimopraktika.Entities to javafx.base;
     opens com.example.antrojiprogramavimopraktika.Controller.Admin.ModalControllers to javafx.fxml;
+
+    opens com.example.antrojiprogramavimopraktika.Controller.Teacher to javafx.fxml;
+
+    opens com.example.antrojiprogramavimopraktika.Controller.Student to javafx.fxml;
 }

@@ -14,4 +14,6 @@ public interface IStudentGroupRepository {
     boolean assignStudentToGroup(int studentID, int groupID);
 
     void removeStudentFromGroup(int studentGroupID);
+
+    List<Student> getStudentsForTeacherAndSubject(int teacherID, int subjectID);
 }

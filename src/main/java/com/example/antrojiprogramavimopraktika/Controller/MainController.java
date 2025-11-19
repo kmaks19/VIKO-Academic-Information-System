@@ -22,4 +22,18 @@ public class MainController {
         );
     }
 
+    public static void ShowTeacherPanel(Stage currentStage) throws IOException {
+        SceneLoader.load(
+                currentStage,
+                "/com/example/antrojiprogramavimopraktika/View/Teacher/Teacher.fxml"
+        );
+    }
+
+    public static void ShowStudentPanel(Stage currentStage) throws IOException {
+        SceneLoader.load(
+                currentStage,
+                "/com/example/antrojiprogramavimopraktika/View/Student/Student.fxml"
+        );
+    }
+
 }

@@ -75,13 +75,23 @@ public class LoginController {
         Session.getInstance().setCurrentUser(user);
 
         switch (user.getRole()) {
-            case "admin", "teacher":
-                break;
-            case "student":
+            case "admin": {
                 MainController.ShowAdminPanel(
                         (Stage) login_submitBtn.getScene().getWindow()
                 );
                 break;
+            }
+            case "teacher": {
+                MainController.ShowTeacherPanel(
+                        (Stage) login_submitBtn.getScene().getWindow()
+                );
+                break;
+            }
+            case "student": {
+                MainController.ShowStudentPanel(
+                        (Stage) login_submitBtn.getScene().getWindow()
+                );
+            }
         }
     }
 }
