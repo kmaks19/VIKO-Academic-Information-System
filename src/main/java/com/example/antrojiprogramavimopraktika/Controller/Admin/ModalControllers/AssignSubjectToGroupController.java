@@ -94,7 +94,7 @@ public final class AssignSubjectToGroupController {
             return false;
         }
 
-        boolean success = gsRepo.addGroupSubject(selectedGroup.getId(), selectedSubject.getID());
+        boolean success = gsRepo.addGroupSubject(selectedGroup.getId(), selectedSubject.getId());
 
         if(!success) {
             subjectassigntogroup_errorLabel.setText("Nepavyko priskirti grupės prie dalyko");

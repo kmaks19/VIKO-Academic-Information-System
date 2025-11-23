@@ -7,10 +7,6 @@ public final class Teacher extends Person {
         super(userID, firstName, lastName, birthDate, email);
     }
 
-    public int getID() {
-        return this.userID;
-    }
-
     @Override
     public String getRole() {
         return "teacher";

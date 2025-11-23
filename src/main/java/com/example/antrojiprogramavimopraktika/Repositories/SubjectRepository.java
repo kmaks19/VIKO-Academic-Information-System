@@ -41,4 +41,73 @@ public final class SubjectRepository implements ISubjectRepository {
         }
         return subjects;
     }
+
+    @Override
+    public List<Subject> getAllSubjects() {
+        List<Subject> list = new ArrayList<>();
+
+        String sql = "SELECT subjectID, subjectName FROM subject ORDER BY subjectID";
+
+        try(Connection conn = Database.getConnection();
+            PreparedStatement stmt = conn.prepareStatement(sql)) {
+            ResultSet rs = stmt.executeQuery();
+
+            while (rs.next()) {
+                list.add(new Subject(
+                        rs.getInt("subjectID"),
+                        rs.getString("subjectName")
+                ));
+            }
+
+        } catch(SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return list;
+    }
+
+    @Override
+    public boolean addSubject(String subjectName) {
+        String sql = "INSERT INTO subject (subjectName) VALUES (?)";
+
+        try(Connection conn = Database.getConnection();
+            PreparedStatement stmt = conn.prepareStatement(sql)) {
+
+            stmt.setString(1, subjectName);
+            return stmt.executeUpdate() > 0;
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    @Override
+    public boolean removeSubject(int subjectID) {
+        String sql = "REMOVE FROM subject WHERE subjectID = ?";
+
+        try (Connection conn = Database.getConnection();
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
+
+            stmt.setInt(1, subjectID);
+            return stmt.executeUpdate() > 0;
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    @Override
+    public boolean getSubjectByName(String subjectName) {
+        String sql = "SELECT subjectName FROM subject WHERE subjectName = ?";
+
+        try(Connection conn = Database.getConnection();
+            PreparedStatement stmt = conn.prepareStatement(sql)){
+
+            stmt.setString(1, subjectName);
+
+            ResultSet rs = stmt.executeQuery();
+
+            return rs.next();
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
 }

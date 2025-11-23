@@ -5,23 +5,36 @@
 <?import javafx.scene.text.*?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="960.0" prefWidth="807.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.antrojiprogramavimopraktika.Controller.Admin.SubjectsController">
-    <TableView fx:id="subjectsTable" focusTraversable="false" layoutY="87.0" prefHeight="313.0" prefWidth="807.0">
+    <Label alignment="CENTER" focusTraversable="false" layoutX="4.0" layoutY="10.0" prefHeight="17.0" prefWidth="807.0" text="Dalykų valdymas">
+        <font>
+            <Font size="19.0" />
+        </font>
+    </Label>
+    <Label alignment="CENTER" focusTraversable="false" layoutY="49.0" prefHeight="17.0" prefWidth="807.0" text="Dalykų sąrašas">
+        <font>
+            <Font size="18.0" />
+        </font>
+    </Label>
+   <TableView fx:id="subjectlistTable" focusTraversable="false" layoutY="95.0" prefHeight="313.0" prefWidth="807.0">
+      <columns>
+         <TableColumn fx:id="subjectlist_id" prefWidth="76.0" text="ID" />
+         <TableColumn fx:id="subjectlist_subjectName" prefWidth="730.0" text="Dalyko pavadinimas" />
+      </columns>
+   </TableView>
+   <Button fx:id="createSubjectBtn" focusTraversable="false" layoutX="230.0" layoutY="450.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="165.0" text="Sukurti naują dalyką" />
+   <Button fx:id="deleteSubjectBtn" focusTraversable="false" layoutX="408.0" layoutY="450.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="165.0" text="Pašalinti dalyką" />
+   <Label alignment="CENTER" focusTraversable="false" layoutX="-8.0" layoutY="514.0" prefHeight="17.0" prefWidth="807.0" text="Dalykų priskirtų prie grupių sąrašas">
+      <font>
+         <Font size="18.0" />
+      </font>
+   </Label>
+    <TableView fx:id="subjectsTable" focusTraversable="false" layoutY="558.0" prefHeight="313.0" prefWidth="807.0">
         <columns>
             <TableColumn fx:id="subjectsassign_id" prefWidth="76.0" text="ID" />
             <TableColumn fx:id="subjectsassign_subjectname" prefWidth="435.0" text="Dalyko pavadinimas" />
             <TableColumn fx:id="subjectsassign_groupname" prefWidth="295.0" text="Grupė" />
         </columns>
     </TableView>
-    <Label alignment="CENTER" focusTraversable="false" layoutX="4.0" layoutY="10.0" prefHeight="17.0" prefWidth="807.0" text="Dalykų valdymas">
-        <font>
-            <Font size="19.0" />
-        </font>
-    </Label>
-    <Button fx:id="subjectsassignBtn" focusTraversable="false" layoutX="226.0" layoutY="421.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="165.0" text="Priskirti naują dalyką" />
-    <Label alignment="CENTER" focusTraversable="false" layoutY="47.0" prefHeight="17.0" prefWidth="807.0" text="Dalykų priskirtų prie grupių sąrašas">
-        <font>
-            <Font size="18.0" />
-        </font>
-    </Label>
-    <Button fx:id="subjectsremoveBtn" focusTraversable="false" layoutX="404.0" layoutY="421.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="165.0" text="Pašalinti priskirtą dalyką" />
+    <Button fx:id="subjectsassignBtn" focusTraversable="false" layoutX="230.0" layoutY="893.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="165.0" text="Priskirti naują dalyką" />
+    <Button fx:id="subjectsremoveBtn" focusTraversable="false" layoutX="408.0" layoutY="893.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="165.0" text="Pašalinti priskirtą dalyką" />
 </AnchorPane>

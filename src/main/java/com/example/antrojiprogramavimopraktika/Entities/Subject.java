@@ -9,7 +9,7 @@ public final class Subject {
         this.name = name;
     }
 
-    public int getID() {
+    public int getId() {
         return this.id;
     }
 

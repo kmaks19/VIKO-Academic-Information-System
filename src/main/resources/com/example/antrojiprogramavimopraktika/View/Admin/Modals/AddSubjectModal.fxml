@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.antrojiprogramavimopraktika.Controller.Admin.ModalControllers.AddSubjectController">
+    <Label alignment="CENTER" focusTraversable="false" layoutY="6.0" prefHeight="17.0" prefWidth="400.0" text="Studijų dalyko pridėjimas">
+        <font>
+            <Font size="16.0" />
+        </font>
+    </Label>
+    <StackPane layoutY="44.0" prefHeight="45.0" prefWidth="400.0">
+        <Label focusTraversable="false" prefHeight="7.0" prefWidth="155.0" text="Įveskite dalyko pavadinimą:">
+            <StackPane.margin>
+                <Insets left="13.0" right="232.0" top="-32.0" />
+            </StackPane.margin>
+            <padding>
+                <Insets bottom="4.0" />
+            </padding>
+        </Label>
+        <TextField fx:id="addstudysubject_input" focusTraversable="false" prefHeight="25.0" prefWidth="282.0" promptText="Dalyko pavadinimas">
+            <StackPane.margin>
+                <Insets left="13.0" right="80.0" top="24.0" />
+            </StackPane.margin>
+        </TextField>
+    </StackPane>
+    <Label fx:id="subjectadd_errorLabel" alignment="CENTER" layoutX="14.0" layoutY="100.0" prefHeight="17.0" prefWidth="307.0" text="Label" textFill="RED" visible="false" />
+    <Button fx:id="addstudysubject_addBtn" focusTraversable="false" layoutX="14.0" layoutY="138.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="153.5" text="Pridėti" />
+    <Button fx:id="addstudysubject_cancelBtn" focusTraversable="false" layoutX="177.0" layoutY="138.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="140.0" text="Atšaukti" />
+</AnchorPane>

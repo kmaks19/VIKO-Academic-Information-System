@@ -20,6 +20,6 @@ public final class Group {
 
     @Override
     public String toString() {
-        return this.name;  // arba getName()
+        return this.name;
     }
 }

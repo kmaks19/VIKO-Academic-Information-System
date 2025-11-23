@@ -56,8 +56,8 @@ public final class GroupController {
         sg_addGroup.setOnAction(_ -> {
             try {
                 SceneLoader.loadModal(
-                        "/com/example/antrojiprogramavimopraktika/View/Admin/Modals/AddStudentGroupModal.fxml",
-                        "Studentų grupės pridėjimas",
+                        "/com/example/antrojiprogramavimopraktika/View/Admin/Modals/AddStudyGroupModal.fxml",
+                        "Studijų grupės pridėjimas",
                         modalController -> ((AddGroupController) modalController).setParent(this)
                 );
             } catch (IOException e) {

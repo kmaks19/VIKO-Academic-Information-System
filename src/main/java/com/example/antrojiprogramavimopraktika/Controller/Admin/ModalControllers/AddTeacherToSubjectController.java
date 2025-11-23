@@ -108,7 +108,7 @@ public final class AddTeacherToSubjectController {
             return false;
         }
 
-        boolean success = tsRepository.addTeacherSubject(teacher.getID(), subject.getID());
+        boolean success = tsRepository.addTeacherSubject(teacher.getUserID(), subject.getId());
 
         if(!success) {
             addteachersubject_errorLabel.setText("Nepavyko priskirti dėstytojo");

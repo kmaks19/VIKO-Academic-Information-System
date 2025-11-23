@@ -32,7 +32,7 @@ CREATE TABLE IF NOT EXISTS `grades` (
   CONSTRAINT `FK_grades_student` FOREIGN KEY (`StudentID`) REFERENCES `user` (`userID`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `FK_grades_subject` FOREIGN KEY (`subjectID`) REFERENCES `subject` (`subjectID`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `grades_chk_1` CHECK ((`grade` between 1 and 10))
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- Data exporting was unselected.
 
@@ -56,7 +56,7 @@ CREATE TABLE IF NOT EXISTS `groupsubjects` (
   KEY `FK_groupsubjects_subject` (`subjectID`),
   CONSTRAINT `FK_groupsubjects_group` FOREIGN KEY (`groupID`) REFERENCES `groups` (`groupID`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `FK_groupsubjects_subject` FOREIGN KEY (`subjectID`) REFERENCES `subject` (`subjectID`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- Data exporting was unselected.
 
@@ -70,7 +70,7 @@ CREATE TABLE IF NOT EXISTS `studentgroup` (
   KEY `FK_studentgroup_group` (`groupID`),
   CONSTRAINT `FK_studentgroup_group` FOREIGN KEY (`groupID`) REFERENCES `groups` (`groupID`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `FK_studentgroup_user` FOREIGN KEY (`userID`) REFERENCES `user` (`userID`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- Data exporting was unselected.
 
@@ -80,7 +80,7 @@ CREATE TABLE IF NOT EXISTS `subject` (
   `subjectName` varchar(100) NOT NULL,
   PRIMARY KEY (`subjectID`),
   UNIQUE KEY `subjectName` (`subjectName`)
-) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- Data exporting was unselected.
 
@@ -94,7 +94,7 @@ CREATE TABLE IF NOT EXISTS `teachersubjects` (
   KEY `FK_teachersubjects_subject` (`subjectID`),
   CONSTRAINT `FK_teachersubjects_subject` FOREIGN KEY (`subjectID`) REFERENCES `subject` (`subjectID`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `FK_teachersubjects_teacher` FOREIGN KEY (`teacherID`) REFERENCES `user` (`userID`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- Data exporting was unselected.
 
@@ -109,7 +109,7 @@ CREATE TABLE IF NOT EXISTS `user` (
   `birthDate` date NOT NULL,
   `email` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`userID`)
-) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=30 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- Data exporting was unselected.
 

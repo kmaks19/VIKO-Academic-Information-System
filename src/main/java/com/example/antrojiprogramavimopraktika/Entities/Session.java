@@ -16,19 +16,11 @@ public final class Session {
         return instance;
     }
 
-    public ObjectProperty<Person> getCurrentUserProperty() {
-        return currentUser;
-    }
-
     public Person getCurrentUserInstance() {
         return currentUser.get();
     }
 
     public void setCurrentUser(Person currentUser){
         this.currentUser.set(currentUser);
-    }
-
-    public void removeUser() {
-        this.currentUser.set(null);
     }
 }

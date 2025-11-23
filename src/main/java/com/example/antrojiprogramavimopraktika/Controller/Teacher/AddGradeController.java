@@ -63,7 +63,7 @@ public class AddGradeController {
             if(newSubject != null) {
 
                 int teacherID = Session.getInstance().getCurrentUserInstance().getUserID();
-                int subjectID = newSubject.getSubject().getID();
+                int subjectID = newSubject.getSubject().getId();
 
                 loadAvailableStudents(teacherID, subjectID);
             }
@@ -151,7 +151,7 @@ public class AddGradeController {
 
         boolean success = gradeRepo.addGrade(
                 selectedStudent.getUserID(),
-                selectedSubject.getSubject().getID(),
+                selectedSubject.getSubject().getId(),
                 gradeValue,
                 LocalDate.now()
         );

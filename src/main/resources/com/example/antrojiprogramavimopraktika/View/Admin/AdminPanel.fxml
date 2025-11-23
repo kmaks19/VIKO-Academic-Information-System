@@ -19,7 +19,7 @@
                   <Insets top="45.0" />
               </VBox.margin>
            </Label>
-           <Button fx:id="admin_stgrupesBtn" focusTraversable="false" mnemonicParsing="false" prefHeight="25.0" prefWidth="369.0" text="Studentų grupės">
+           <Button fx:id="admin_stgrupesBtn" focusTraversable="false" mnemonicParsing="false" prefHeight="25.0" prefWidth="369.0" text="Studijų grupės">
               <VBox.margin>
                   <Insets bottom="46.0" left="46.0" right="46.0" top="36.0" />
               </VBox.margin>
